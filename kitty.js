@@ -14,6 +14,8 @@ var randomOne;
 var randomTwo;
 var $firstImage = $('#imageOne');
 var $secondImage = $('#imageTwo');
+var $nextButton = $('#next-button');
+var $buttonDiv = $('#buttonPlace');
 
 var k1 = new Kitten('kitten1', 'images/1.jpg', 0);
 var k2 = new Kitten('kitten2', 'images/2.jpg', 0);
@@ -41,7 +43,42 @@ function chooseKitten() {
   $firstImage.append('<img height="200" width="200" src = images/' + randomOne + '.jpg>');
   $secondImage.append('<img height="200" width="200" src = images/' + randomTwo + '.jpg>');
 }
-chooseKitten();
+
+$(document).ready(function() {
+  $('#start').click(function() {
+    chooseKitten();
+    $('#start').hide();
+  })
+});
+
+
+$('#imageOne').on('click', function() {
+  $secondImage.hide();
+  kittenArray.forEach(function(kitty1) {
+    if('kitten' + randomOne === kitty1.name) {
+      kitty1.vote += 1;
+      console.log(kitty1.vote);
+    }
+  })
+  $nextButton.hide();
+  $buttonDiv.append('<button id="next-button">Play Again</button>');
+  $nextButton.on('click', chooseKitten);
+
+
+});
+
+$("#imageTwo").on('click', function() {
+  $firstImage.hide();
+  kittenArray.forEach(function(kitty2) {
+    if('kitten' + randomTwo === kitty2.name) {
+      kitty2.vote += 1;
+      console.log(kitty2.vote);
+    }
+  })
+  $nextButton.hide();
+  $buttonDiv.append('<button id="next-button">Play Again</button>');
+  $nextButton.on('click', chooseKitten);
+});
 
 
 
