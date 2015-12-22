@@ -2,18 +2,26 @@
 <html>
 <head>
   <title>Kitten Tracker</title>
+  <link rel='stylesheet' type='text/css' href='styles.css'>
+  <script src='https://cdnjs.cloudflare.com/ajax/libs/jquery/3.0.0-alpha1/jquery.js'></script>
+  <script src='https://cdnjs.cloudflare.com/ajax/libs/Chart.js/1.0.2/Chart.js'></script>
+  <script type="text/javascript" src='kitty.js'></script>
 </head>
 <body>
+  <main>
 
-  <section>
-    <image id='imageOne'></image>
-    <image id='imageTwo'></image>
-  </section>
-  <div id='buttonPlace'>
-    <button id='nextButton' type='submit'>Next</button>
-  </div>
+    <section>
+      <image id='imageOne'></image>
+      <image id='imageTwo'></image>
+    </section>
+    <div id='buttonPlace'>
+      <button id='nextButton' type='submit'>Next</button>
+    </div>
+    <canvas id="myChart" width="1000" height="400">
+    </canvas>
+    <div id='legend'>
+    </div>
+  </main>
 
-  <script src='https://cdnjs.cloudflare.com/ajax/libs/jquery/3.0.0-alpha1/jquery.js'></script>
-  <script type="text/javascript" src='kitty.js'></script>
 </body>
 </html>
