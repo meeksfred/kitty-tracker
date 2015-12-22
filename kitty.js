@@ -43,6 +43,9 @@ $(document).ready(function() {
       randomTwo = (Math.floor(Math.random() * (14 - 1 + 1)) + 1);
       }
 
+    $('.response').hide();
+    $firstImage.removeClass('highlightIt');
+    $secondImage.removeClass('highlightIt');
     $firstImage.show();
     $secondImage.show();
     $firstImage.attr({src:'images/' + randomOne + '.jpg', height:200, width:200});
@@ -54,7 +57,9 @@ $(document).ready(function() {
 
 
   $('#imageOne').on('click', function() {
+    $firstImage.addClass('highlightIt');
     $secondImage.hide();
+    $('section').append('<div class="response">You selected Kitten' + randomOne + '!' + ' Click the Next button to play again!</div>');
     tracker.totalVotes += 1;
     console.log(tracker.totalVotes);
     kittenArray.forEach(function(kitty1) {
@@ -64,14 +69,14 @@ $(document).ready(function() {
       }
     });
     renderChart();
-    // $nextButton.hide();
-    // $buttonDiv.append('<button id="nextButton">Play Again</button>');
     console.log('hi');
     $('#nextButton').on('click', chooseKitten);
   });
 
   $("#imageTwo").on('click', function() {
+    $secondImage.addClass('highlightIt');
     $firstImage.hide();
+    $('section').append('<div class="response">You selected Kitten' + randomOne + '!' + ' Click the Next button to play again!</div>');
     tracker.totalVotes += 1;
     console.log(tracker.totalVotes);
     kittenArray.forEach(function(kitty2) {
@@ -81,8 +86,6 @@ $(document).ready(function() {
       }
     });
     renderChart();
-    // $nextButton.hide();
-    // $buttonDiv.append('<button id="nextButton">Play Again</button>');
     console.log('hi');
     $('#nextButton').on('click', chooseKitten);
   });
@@ -207,21 +210,6 @@ $(document).ready(function() {
       }
       ]
     };
-
-    // $('chartOne').text(kittenArray[0].name);
-    // $('chartTwo').text(kittenArray[1].name);
-    // $('chartThree').text(kittenArray[2].name);
-    // $('chartFour').text(kittenArray[3].name);
-    // $('chartFive').text(kittenArray[4].name);
-    // $('chartSix').text(kittenArray[5].name);
-    // $('chartSeven').text(kittenArray[6].name);
-    // $('chartEight').text(kittenArray[7].name);
-    // $('chartNine').text(kittenArray[8].name);
-    // $('chartTen').text(kittenArray[9].name);
-    // $('chartEleven').text(kittenArray[10].name);
-    // $('chartTwelve').text(kittenArray[11].name);
-    // $('chartThirteen').text(kittenArray[12].name);
-    // $('chartFourteen').text(kittenArray[13].name);
 
     var options = {
       legendTemplate : '<ul class=\"<%=name.toLowerCase()%>-legend\"><% for (var i=0; '

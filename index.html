@@ -3,25 +3,45 @@
 <head>
   <title>Kitten Tracker</title>
   <link rel='stylesheet' type='text/css' href='styles.css'>
+  <link href='https://fonts.googleapis.com/css?family=Indie+Flower' rel='stylesheet' type='text/css'>
   <script src='https://cdnjs.cloudflare.com/ajax/libs/jquery/3.0.0-alpha1/jquery.js'></script>
   <script src='https://cdnjs.cloudflare.com/ajax/libs/Chart.js/1.0.2/Chart.js'></script>
   <script type="text/javascript" src='kitty.js'></script>
 </head>
 <body>
+  <header>
+    <p>Kitten Cuteness Counter</p>
+    <ul>
+      <li class='nav'><a href='#'>Home</a></li>
+      <li class='nav'><a href='#'>Kittens</a></li>
+  </header>
+  <h2>Welcome to the Kitten Cuteness Voting Game! Select your favorite kitten from the two shown below. After selection, a graph will appear farther down keeping track of how many times each kitten has beed voted for.
   <main>
-
     <section>
+      <div id='response'></div>
       <image id='imageOne'></image>
       <image id='imageTwo'></image>
     </section>
     <div id='buttonPlace'>
       <button id='nextButton' type='submit'>Next</button>
     </div>
-    <canvas id="myChart" width="1000" height="400">
-    </canvas>
-    <div id='legend'>
+    <div class='chartStyle'>
+      <canvas id="myChart"></canvas>
+    </div>
+    <div class='legendStyle' id='legend'>
     </div>
   </main>
 
 </body>
+<footer>
+    <address>
+      Kitten Cuteness Inc.<br>
+      101 John Doe Dr.<br>
+      Seattle, WA<br>
+    </address>
+    <address>
+      Phone: (123)456-7890<br>
+      Email: <a href='mailto:maxfred0025@gmail.com'>maxfred0025@gmail.com</a><br>
+    </address>
+  </footer>
 </html>
