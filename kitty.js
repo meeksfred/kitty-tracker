@@ -14,8 +14,8 @@ var randomOne;
 var randomTwo;
 var $firstImage = $('#imageOne');
 var $secondImage = $('#imageTwo');
-var $nextButton = $('#next-button');
-var $buttonDiv = $('#buttonPlace');
+var $nextButton = $('#nextButton');
+var $buttonDiv = $('#theButton');
 
 var k1 = new Kitten('kitten1', 'images/1.jpg', 0);
 var k2 = new Kitten('kitten2', 'images/2.jpg', 0);
@@ -38,18 +38,18 @@ function chooseKitten() {
   randomOne = (Math.floor(Math.random() * (14 - 1 + 1)) + 1);
   randomTwo = (Math.floor(Math.random() * (14 - 1 + 1)) + 1);
 
+  while (randomOne === randomTwo) {
+    randomTwo = (Math.floor(Math.random() * (14 - 1 + 1)) + 1);
+    }
+
   $firstImage.show();
   $secondImage.show();
-  $firstImage.append('<img height="200" width="200" src = images/' + randomOne + '.jpg>');
-  $secondImage.append('<img height="200" width="200" src = images/' + randomTwo + '.jpg>');
+  $firstImage.attr({src:'images/' + randomOne + '.jpg', height:200, width:200});
+  $secondImage.attr({src:'images/' + randomTwo + '.jpg', height:200, width:200});
 }
 
-$(document).ready(function() {
-  $('#start').click(function() {
-    chooseKitten();
-    $('#start').hide();
-  })
-});
+
+chooseKitten();
 
 
 $('#imageOne').on('click', function() {
@@ -59,12 +59,11 @@ $('#imageOne').on('click', function() {
       kitty1.vote += 1;
       console.log(kitty1.vote);
     }
-  })
-  $nextButton.hide();
-  $buttonDiv.append('<button id="next-button">Play Again</button>');
-  $nextButton.on('click', chooseKitten);
-
-
+  });
+  // $nextButton.hide();
+  // $buttonDiv.append('<button id="nextButton">Play Again</button>');
+  console.log('hi');
+  $('#nextButton').on('click', chooseKitten);
 });
 
 $("#imageTwo").on('click', function() {
@@ -74,10 +73,11 @@ $("#imageTwo").on('click', function() {
       kitty2.vote += 1;
       console.log(kitty2.vote);
     }
-  })
-  $nextButton.hide();
-  $buttonDiv.append('<button id="next-button">Play Again</button>');
-  $nextButton.on('click', chooseKitten);
+  });
+  // $nextButton.hide();
+  // $buttonDiv.append('<button id="nextButton">Play Again</button>');
+  console.log('hi');
+  $('#nextButton').on('click', chooseKitten);
 });
 
 
